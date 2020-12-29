@@ -1,2 +1,2 @@
 ## The statement of the problem
-https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/solution/
+https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/
