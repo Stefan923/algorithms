@@ -1,2 +1,2 @@
 ## The statement of the problem
-https://leetcode.com/problems/add_digits/
+https://leetcode.com/problems/add-digits/
