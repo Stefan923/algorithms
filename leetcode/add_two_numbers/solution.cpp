@@ -9,15 +9,15 @@
  * };
  */
 class Solution {
-  
+
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
         ListNode* result = NULL;
         ListNode* currentNode = NULL;
-        int reminder = 0;
+        int sum = 0;
         
-        while (l1 != NULL && l2 != NULL) {
-            int sum = l1->val + l2->val + reminder;
+        while (l1 || l2) {
+            sum += (l1 ? l1->val : 0) + (l2 ? l2->val : 0);
             
             if (result == NULL) {
                 result = currentNode = new ListNode(sum % 10);
@@ -26,35 +26,17 @@ public:
                 currentNode = currentNode->next;
             }
             
-            reminder = sum / 10;
+            sum /= 10;
             
-            l1 = l1->next;
-            l2 = l2->next;
+            l1 = l1 ? l1->next : NULL;
+            l2 = l2 ? l2->next : NULL;
         }
         
-        while (l1 != NULL) {
-            int sum = l1->val + reminder;
-            currentNode->next = new ListNode(sum % 10);
-            reminder = sum / 10;
-            
-            currentNode = currentNode->next;
-            l1 = l1->next;
-        }
-        
-        while (l2 != NULL) {
-            int sum = l2->val + reminder;
-            currentNode->next = new ListNode(sum % 10);
-            reminder = sum / 10;
-            
-            currentNode = currentNode->next;
-            l2 = l2->next;
-        }
-        
-        if (reminder != 0) {
-            currentNode->next = new ListNode(reminder);
+        if (sum != 0) {
+            currentNode->next = new ListNode(sum);
         }
         
         return result;
     }
-  
+
 };
